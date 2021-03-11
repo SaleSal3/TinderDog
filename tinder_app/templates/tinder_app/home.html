@@ -1,0 +1,19 @@
+{% extends 'tinder_app/base.html' %}
+
+{% block content %}
+
+	
+	{% for dog in dogs %}
+		<ul>
+			{% if dog.image %}
+				<img src="{{ dog.image.url }}"></a>
+			{% endif %}
+
+			<li>{{ dog.breed }}</li>
+			<li>{{ dog.gender }}</li>
+			<li>{{ dog.birthYear }}</li>
+			<li>{{ dog.info }}</li>
+		</ul>
+	{% endfor %}
+	
+{% endblock %}
