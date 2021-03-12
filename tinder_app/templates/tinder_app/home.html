@@ -1,19 +1,28 @@
 {% extends 'tinder_app/base.html' %}
 
 {% block content %}
-
+{% if user.is_authenticated %}
 	
 	{% for dog in dogs %}
-		<ul>
-			{% if dog.image %}
-				<img src="{{ dog.image.url }}"></a>
-			{% endif %}
+		
 
-			<li>{{ dog.breed }}</li>
-			<li>{{ dog.gender }}</li>
-			<li>{{ dog.birthYear }}</li>
-			<li>{{ dog.info }}</li>
-		</ul>
+	{% if dog.image %}
+		<div class="card" style="width:400px">
+		  <img src="{{ dog.image.url }}"></a> 
+	{% endif %}
+
+		  <div class="card-body">
+		    <h4 class="card-title"> Rasa: {{ dog.breed }}</h4>
+		    <p class="card-text">Godiste: {{ dog.birthYear }}</p>
+		    <p class="card-text">Postavljen: {{ dog.date }}</p><br>
+			<p class="card-text"> Info: {{ dog.info }}</p>
+
+		    <a href="{% url 'details' dog.pk %}" class="btn btn-primary">Detaljnije</a>
+
+		  </div>
+		</div>
+
 	{% endfor %}
 	
+{% endif %}
 {% endblock %}

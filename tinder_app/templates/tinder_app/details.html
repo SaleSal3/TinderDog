@@ -1,0 +1,42 @@
+{% extends 'tinder_app/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+	{% for detail in dogs_details %}
+
+		<div class="card-body">
+		    <h4 class="card-title">{{ detail.breed }}</h4>
+		    <p class="card-text">{{ detail.birthYear }}.</p>
+		</div>
+
+		<ul>
+			{% if detail.image %}
+				<img src="{{ detail.image.url }}"></a> 
+			{% endif %}
+			<br><br>
+			{% if detail.image2 %}
+				<img src="{{ detail.image2.url }}"></a> 
+			{% endif %}
+			<br><br>
+			{% if detail.image3 %}
+				<img src="{{ detail.image3.url }}"></a> 
+			{% endif %}
+			<br><br>
+			{% if detail.image4 %}
+				<img src="{{ detail.image4.url }}"></a> 
+			{% endif %}
+
+			<br>
+
+			<div class="card-body">
+			    <p class="card-text">{{ detail.info }}.</p>
+			</div>
+		</ul>
+		
+	{% endfor %}
+
+
+{% endif %}
+{% endblock %}

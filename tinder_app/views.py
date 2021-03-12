@@ -6,5 +6,12 @@ from . models import *
 def home(request):
 	dogs = Dog.objects.all()
 
-	context = {'dogs':dogs}
-	return render(request, 'tinder_app/home.html', context)
+	return render(request, 'tinder_app/home.html', {'dogs':dogs})
+
+
+
+
+def details(request, pk):
+	dogs_details = Dog.objects.filter(pk=pk)
+
+	return render(request, 'tinder_app/details.html', {'dogs_details':dogs_details})
