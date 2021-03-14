@@ -5,17 +5,19 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-	<form method="POST">
+	<form class="form-group" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form.as_p }}
 
 		{% for info in dogs_info %}
 		<h4> Da li ste sigurni da zelite da obrisete 
 			({{ info.breed }}/{{info.gender}}/{{ info.birthYear }})?
+			<br><br>
+			<img src="{{ info.image.url }}">
 		</h4>
 
-		<input type="submit" name="Delete">
-		<a href="{% url 'home' %}" class="btn btn">Cancel</a>
+		<input type="submit" value="Obrisi">
+		<a href="{% url 'home' %}" class="btn btn"> Odustani </a>
 		{% endfor %}
 	</form>
 

@@ -5,18 +5,16 @@
 {% block content %}
 {% if user.is_authenticated %}
 
-	<form class="form-group" method="POST" enctype="multipart/form-data">
-		{% csrf_token %}
-		{{ form.as_p }}
-		{{ form.media }}
-
+<form class="form-group" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        {{ form.as_p }}
+        {{ form.media }}
 		<input type="submit" value="Post">
 
 		<script>
 	        var name = '{{ user.id }}';
 	        document.getElementById('admin').value = name;
 	    </script>
-
 	</form>
 
 

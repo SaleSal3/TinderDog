@@ -344,9 +344,10 @@ function openCity(evt, cityName) {
 
  <!-- Dugmici za izmenu i brisanje -->
 
+{% if request.user == detail.user %}
         <a href="{% url 'edit' detail.pk %}" class="btn btn-primary">Izmeni</a>
         <a href="{% url 'delete' detail.pk %}" class="btn btn-danger">Obrisi</a>
-
+{% endif %}
 
 			</div>
 		</ul>
