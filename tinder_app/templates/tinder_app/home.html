@@ -4,25 +4,24 @@
 {% if user.is_authenticated %}
 	
 
-	
-	{% for dog in dogs %}
-	{% if dog.image %}
-		<div class="card" style="width:400px">
-		  <img src="{{ dog.image.url }}">
-	{% endif %}
+		<div class="card-body">
+			<div class="card" style="width:400px">
 
-		  <div class="card-body">
+			{% for dog in dogs %}
+
+			<img src="{{ dog.image.url }}">
+			<br>
 		    <h4 class="card-title"> Rasa: {{ dog.breed }}</h4>
-		    <p class="card-text">Godiste: {{ dog.birthYear }}</p>
-		    <p class="card-text">Postavljen: {{ dog.date.date }}</p><br>
+		    <p class="card-text"> Godiste: {{ dog.birthYear }}</p>
+		    <p class="card-text"> Postavljen: {{ dog.date.date }}</p><br>
 			<p class="card-text"> Info: {{ dog.info }}</p>
 
-		    <a href="{% url 'details' dog.pk %}" class="btn btn-primary">Detaljnije</a>
+		    <a href="{% url 'details' dog.pk %}" class="btn btn-primary"> Detaljnije </a>
 
-		  </div>
+			{% endfor %}
+
+			/div>
 		</div>
-
-	{% endfor %}
 	
 {% endif %}
 {% endblock %}
