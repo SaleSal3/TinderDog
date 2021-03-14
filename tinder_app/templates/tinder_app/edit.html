@@ -1,0 +1,16 @@
+{% extends 'tinder_app/base.html' %}
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+<form class="form-group" method="POST">
+    {% csrf_token %}
+	    <table class="table table-hover">
+	        {{ form.as_table}}
+	    </table>
+		<input type="submit" value="Sacuvaj">
+</form>
+
+{% endif %}
+{% endblock %}

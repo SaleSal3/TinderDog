@@ -1,0 +1,23 @@
+{% extends 'tinder_app/base.html' %}
+
+
+
+{% block content %}
+{% if user.is_authenticated %}
+
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		{% for info in dogs_info %}
+		<h4> Da li ste sigurni da zelite da obrisete 
+			({{ info.breed }}/{{info.gender}}/{{ info.birthYear }})?
+		</h4>
+
+		<input type="submit" name="Delete">
+		<a href="{% url 'home' %}" class="btn btn">Cancel</a>
+		{% endfor %}
+	</form>
+
+{% endif %}
+{% endblock %}

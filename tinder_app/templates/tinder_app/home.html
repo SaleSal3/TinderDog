@@ -14,7 +14,7 @@
 		  <div class="card-body">
 		    <h4 class="card-title"> Rasa: {{ dog.breed }}</h4>
 		    <p class="card-text">Godiste: {{ dog.birthYear }}</p>
-		    <p class="card-text">Postavljen: {{ dog.date }}</p><br>
+		    <p class="card-text">Postavljen: {{ dog.date.date }}</p><br>
 			<p class="card-text"> Info: {{ dog.info }}</p>
 
 		    <a href="{% url 'details' dog.pk %}" class="btn btn-primary">Detaljnije</a>

@@ -13,15 +13,20 @@ class DogBreed(models.Model):
 
 
 class Dog(models.Model):
-	image = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True)
-	image2 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
-	image3 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
-	image4 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	breed = models.ForeignKey('DogBreed', on_delete=models.CASCADE)
 	birthYear = models.CharField(max_length=15)
 	gender = models.CharField(max_length=10)
 	info = models.TextField(max_length=1000)
 	date = models.DateTimeField(default=datetime.now, blank=True)
-	breed = models.ForeignKey('DogBreed', on_delete=models.CASCADE)
+	image = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True)
+	image2 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	image3 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	image4 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	image5 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	image6 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
 
 	def __str__(self):
 		return (f'{self.birthYear}, {self.gender}, {self.breed}, {self.date}')
+
+	class Meta:
+		ordering = ['-date']
