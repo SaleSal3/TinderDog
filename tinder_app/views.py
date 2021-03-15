@@ -45,3 +45,17 @@ def delete(request, pk):
 
 	context = {'dogs':dogs, 'dogs_info':dogs_info}
 	return render(request, 'tinder_app/delete.html', context)
+
+
+def create(request):
+	dogs = Dog.objects.all()
+	form = DogForm()
+
+	if request.method == 'POST':
+		form = DogForm(request.POST, request.FILES)
+		if form.is_valid():
+			form.save()
+			return redirect('home')
+
+	context = {'dogs':dogs, 'form':form}
+	return render(request, 'tinder_app/create.html', context)

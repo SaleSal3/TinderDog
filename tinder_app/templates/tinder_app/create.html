@@ -6,6 +6,17 @@
 {% if user.is_authenticated %}
 
 
+	<form method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+
+		<input type="submit" name="">
+	</form>
+
+    <script>
+        var name = '{{ user.id }}';
+        document.getElementById('admin').value = name;
+    </script>
 
 {% endif %}
 {% endblock %}

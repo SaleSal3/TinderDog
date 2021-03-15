@@ -14,6 +14,9 @@ class DogBreed(models.Model):
 	def __str__(self):
 		return self.breed
 
+	class Meta:
+		ordering = ['breed']
+
 
 
 class Dog(models.Model):
