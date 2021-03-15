@@ -160,14 +160,14 @@ img {
   </div>
   {% endif %}
 
-
+<br>
   <a class="prev" onclick="plusSlides(-1)">❮</a>
   <a class="next" onclick="plusSlides(1)">❯</a>
-
+<br><br>
   <div class="caption-container">
     <p id="caption"></p>
   </div>
-
+<br>
   <div class="row">
     {% if detail.image %}
     <div class="column">
@@ -207,7 +207,7 @@ img {
 
   </div>
 </div>
-
+<br>
 <script>
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -318,7 +318,7 @@ body {font-family: Arial;}
 
 <div id="Kontakt" class="tabcontent">
   <h3>Broj telefona</h3>
-  <p>NEEKI BROJ OVDE</p> 
+  {{ detail.phone_no }}
 </div>
 
 

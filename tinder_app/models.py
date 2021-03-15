@@ -5,9 +5,6 @@ from django.contrib.auth.models import User
 
 
 
-
-
-
 class DogBreed(models.Model):
 	breed = models.CharField(max_length=50)
 
@@ -31,6 +28,7 @@ class Dog(models.Model):
 	image4 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
 	image5 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
 	image6 = ResizedImageField(size=[320,240], quality=100, upload_to='pictures', null=True, blank=True)
+	phone_no = models.CharField(max_length=20, null=True, blank=False)
 	date = models.DateTimeField(default=datetime.now, blank=True)
 
 	def __str__(self):
